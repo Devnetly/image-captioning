@@ -92,12 +92,12 @@ class Trainer:
         self.history = self._init_history()
         return self
     
-    def _format(self, dict_ : dict) -> str:
+    def _format(self, dict_ : dict, prefix : str = '') -> str:
 
         r = []
 
         for key,value in dict_.items():
-            r.append(f"{key} = {value}")
+            r.append(f"{prefix}{key} = {value}")
 
         return ','.join(r)
     
@@ -146,7 +146,7 @@ class Trainer:
 
         return step_results,loss
     
-    def train_on_loader(self, loader : DataLoader) -> tuple[dict[str, float],float]:
+    def train_on_loader(self, loader : DataLoader) -> tuple[dict[str, float],float,float]:
 
         self.model.train()
 
@@ -154,6 +154,8 @@ class Trainer:
         running_loss = 0.0
 
         t_object = tqdm(loader)
+
+        tic = time.time()
 
         for batch in t_object:
 
@@ -166,14 +168,18 @@ class Trainer:
 
         running_loss /= len(loader)
 
-        return results.compute(),running_loss
+        toc = time.time()
+
+        return results.compute(),running_loss,(toc - tic)
     
-    def eval_on_loader(self, loader : DataLoader) -> tuple[dict[str, float],float]:
+    def eval_on_loader(self, loader : DataLoader) -> tuple[dict[str, float],float,float]:
 
         self.model.eval()
 
         results = BatchResults(self.metrics)
         running_loss = 0.0
+
+        tic = time.time()
 
         with torch.inference_mode():
 
@@ -184,37 +190,36 @@ class Trainer:
 
         running_loss /= len(loader)
 
-        return results.compute(),running_loss
+        toc = time.time()
+
+        return results.compute(),running_loss,(toc - tic)
     
     def train(self, train_dataloader : DataLoader,val_dataloader : DataLoader, epochs : int) -> None:
 
         for epoch in range(epochs):
 
-            tic = time.time()
-            train_results, train_loss = self.train_on_loader(train_dataloader)
-            toc = time.time()
-
+            train_results, train_loss, training_time = self.train_on_loader(train_dataloader)
             train_results['loss'] = train_loss
-            train_results['epoch'] = epoch
-            train_results['time'] = (toc - tic)
 
             print()
 
-            tic = time.time()
-            val_results, val_loss = self.eval_on_loader(val_dataloader)
-            toc = time.time()
+            val_results, val_loss, validation_time = self.eval_on_loader(val_dataloader)
 
             val_results['loss'] = val_loss
-            val_results['epoch'] = epoch
-            val_results['time'] = (toc - tic)
 
             self.history.update(train_results, 'train')
             self.history.update(val_results, 'val')
 
-            msg = f"Train Results : {self._format(train_results)}, loss = {train_loss}"
-            msg += f", Validation Results : {self._format(val_loss)}, loss = {val_loss}"
+            msg = f"\n{self._format(train_results,prefix='train_')}"
+            msg += f",{self._format(val_loss,prefix='val_')}, loss = {val_loss}\n"
 
             print(msg)
+
+            train_results['time'] = training_time
+            val_results['time'] = validation_time
+
+            train_results['epoch'] = epoch
+            val_results['epoch'] = epoch
 
             if self.scheduler is not None and (self.last_best_score is None or val_results[self.score_metric] > self.last_best_score):
 

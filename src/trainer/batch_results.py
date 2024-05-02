@@ -22,8 +22,8 @@ class BatchResults:
         results = {}
 
         for name,metric in self.metrics.items():
-            results[name] = metric(y_hat, y)    
-            self.results[name] += results[name].item()
+            results[name] = metric(y_hat, y).item()
+            self.results[name] += results[name]
 
         self.iters += 1
 
