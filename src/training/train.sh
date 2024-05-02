@@ -1,0 +1,1 @@
+python3 train.py --dataset=flickr30k --weights-folder=transformer --histories-folder=transformer --epochs=5

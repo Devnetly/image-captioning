@@ -1,0 +1,1 @@
+from .seq_2_seq_accuracy import Seq2SeqAccuracy
