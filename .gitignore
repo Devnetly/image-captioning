@@ -1,4 +1,4 @@
-data/*
+data/**/images
 __pycache__
 *.pt
 test_images2/*

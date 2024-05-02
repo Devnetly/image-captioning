@@ -17,8 +17,8 @@ class TextPreprocessor(Callable):
         doc = doc.lower()
         doc = doc.strip()
         
-        doc = re.sub(" +"," ", doc)
         doc = re.sub(r"\d+", "", doc)
         doc = re.sub(self.spetial_chars_regex," ",doc)
+        doc = re.sub(" +"," ", doc)
 
         return doc
