@@ -5,7 +5,7 @@ from PIL import Image
 
 class ImageDirectory(Dataset):
 
-    DEFAULT_EXTS = ['jpg','jpeg','png']
+    DEFAULT_EXTS = ['.jpg','.jpeg','.png']
 
     def __init__(self, 
         root : str, 
@@ -23,7 +23,7 @@ class ImageDirectory(Dataset):
     def _find_images(self) -> list[str]:
         
         files = os.listdir(self.root)
-        images = filter(lambda f : os.path.splitext(f)[1] in self.exts,files)
+        images = filter(lambda f : os.path.splitext(f)[1].lower() in self.exts,files)
         images = map(lambda f : os.path.join(self.root, f), images)
         images = list(images)
 

@@ -50,6 +50,6 @@ class ImageCaptionGenerator:
             stop = word_id == self.tokenizer.vocab.eos_idx or  i == self.max_len - 2   
 
         caption[0] = caption[0].title()
-        caption = ' '.join(caption)
+        caption = ' '.join(caption) + '.'
 
         return caption
