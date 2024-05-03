@@ -207,11 +207,8 @@ class Trainer:
 
             val_results['loss'] = val_loss
 
-            self.history.update(train_results, 'train')
-            self.history.update(val_results, 'val')
-
             msg = f"\n{self._format(train_results,prefix='train_')}"
-            msg += f",{self._format(val_loss,prefix='val_')}, loss = {val_loss}\n"
+            msg += f",{self._format(val_results,prefix='val_')}\n"
 
             print(msg)
 
@@ -220,6 +217,9 @@ class Trainer:
 
             train_results['epoch'] = epoch
             val_results['epoch'] = epoch
+
+            self.history.update(train_results, 'train')
+            self.history.update(val_results, 'val')
 
             if self.scheduler is not None and (self.last_best_score is None or val_results[self.score_metric] > self.last_best_score):
 
