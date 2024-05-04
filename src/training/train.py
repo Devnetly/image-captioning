@@ -3,7 +3,6 @@ sys.path.append('../..')
 import argparse
 import torch
 import time
-import pandas as pd
 import os
 import logging
 import logging.config

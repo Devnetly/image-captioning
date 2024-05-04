@@ -72,7 +72,6 @@ if __name__ == "__main__":
 
     parser.add_argument("--dataset", type=str, choices=DatasetDescriptor.LOOKUP.keys(), default="flickr30k")
     parser.add_argument("--min-freq", type=int, default=8)
-    parser.add_argument("--on-already-exists", type=str, choices=["error","ignore","override"],default="error")
 
     args = parser.parse_args()
 
