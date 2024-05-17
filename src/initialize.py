@@ -1,7 +1,6 @@
 import sys
 import argparse
 import pandas as pd
-import os
 import logging
 import logging.config
 sys.path.append('..')
