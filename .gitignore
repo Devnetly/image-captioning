@@ -1,4 +1,5 @@
 data/**/images
 __pycache__
 *.pt
+.ipynb_checkpoints
 test_images2/*
