@@ -1,0 +1,8 @@
+{
+    "feature_extractor_name" : "deit3_small_patch16_384.fb_in22k_ft_in1k",
+    "features_dim" : 256,
+    "encoder_length" : 576,
+    "num_heads" : 8,
+    "num_layers" : 6,
+    "max_len" : 80
+}
