@@ -3,3 +3,4 @@ __pycache__
 *.pt
 .ipynb_checkpoints
 test_images2/*
+test*.ipynb
