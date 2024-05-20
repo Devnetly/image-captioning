@@ -4,7 +4,8 @@
 
 This project is part of a university course on Natural Language Processing (NLP). The objective is to develop a model that can generate captions for images using a transformer-based architecture. We have utilized a Data-efficient Image Transformer (DeiT) for the encoder and a standard transformer decoder. The Flickr30k dataset was used for training, with additional text preprocessing and image resizing and augmentation techniques applied,for more details see : [Report](https://github.com/Devnetly/image-captioning/blob/main/docs/report.pdf).
 
-<img src="https://github.com/Deve/[reponame]/blob/[branch]/image.jpg?raw=true" alt="drawing" width="100%"/>
+
+<img src="https://github.com/Devnetly/image-captioning/blob/main/docs/figures/architecture-with-bg.png?raw=true" alt="drawing" width="100%"/>
 
 ## Members
 
