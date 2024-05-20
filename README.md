@@ -17,10 +17,11 @@ This project is part of a university course on Natural Language Processing (NLP)
 To set up the project, please follow these steps:
 
 ```sh
-# git clone https://github.com/your-repo/image-captioning.git
-# cd image-captioning
-# conda create -n automatic-image-captioning
-# pip install -r requirements.txt
+git clone https://github.com/your-repo/image-captioning.git
+cd image-captioning
+conda create -n automatic-image-captioning
+conda activate automatic-image-captioning
+pip install -r requirements.txt
 ```
 
 ## Training
@@ -28,8 +29,8 @@ To set up the project, please follow these steps:
 To train the model,follow the steps below : 
 
 ```sh
-# cd src/training
-# python train.py [-h] --dataset {flickr30k} [--batch-size BATCH_SIZE] [--learning-rate LEARNING_RATE] [--weight-decay WEIGHT_DECAY] [--epochs EPOCHS] [--num-workers NUM_WORKERS] [--prefetch-factor PREFETCH_FACTOR] --weights-folder WEIGHTS_FOLDER --histories-folder HISTORIES_FOLDER
+cd src/training
+python train.py [-h] --dataset {flickr30k} [--batch-size BATCH_SIZE] [--learning-rate LEARNING_RATE] [--weight-decay WEIGHT_DECAY] [--epochs EPOCHS] [--num-workers NUM_WORKERS] [--prefetch-factor PREFETCH_FACTOR] --weights-folder WEIGHTS_FOLDER --histories-folder HISTORIES_FOLDER
 ```
 
 ## Inference
@@ -37,8 +38,8 @@ To train the model,follow the steps below :
 To generate caption for a set of images in folder,follow these steps : 
 
 ```sh
-# cd src/inference
-# inference.py [-h] [--dataset {flickr30k}] [--model {transformer}] --checkpoint CHECKPOINT [--source SOURCE] --destination DESTINATION
+cd src/inference
+inference.py [-h] [--dataset {flickr30k}] [--model {transformer}] --checkpoint CHECKPOINT [--source SOURCE] --destination DESTINATION
 ```
 
 ## Run the associated app
@@ -46,6 +47,6 @@ To generate caption for a set of images in folder,follow these steps :
 To run the app associated with the project : 
 
 ```sh
-# cd app
-# streamlit run main.py
+cd app
+streamlit run main.py
 ```
