@@ -24,6 +24,41 @@ conda activate automatic-image-captioning
 pip install -r requirements.txt
 ```
 
+Once the envirement is ready, run the `initialize.py` to split the dataset and create the vocabulary,initialy the /data folder structure should be like this : 
+
+```
+data
+└── flickr30k
+    ├── captions.csv
+    ├── images
+    │   └── 0.jpg
+    │   └── 1.jpg
+    │   ⋮
+    │   └── n.jpg
+```
+
+Then run the command : 
+
+```sh
+python initialize.py --dataset {flickr30k} [--min-freq MIN_FREQ]
+```
+
+And the folder structure should then become something similar to the one below:
+
+```
+data
+└── flickr30k
+    ├── captions.csv
+    ├── images
+    │   └── 0.jpg
+    │   └── 1.jpg
+    │   ⋮
+    │   └── n.jpg
+    ├── test_captions.csv
+    ├── train_captions.csv
+    └── vocab.pkl
+```
+
 ## Training
 
 To train the model,follow the steps below : 
