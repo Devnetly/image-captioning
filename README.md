@@ -17,7 +17,7 @@ This project is part of a university course on Natural Language Processing (NLP)
 To set up the project, please follow these steps:
 
 ```sh
-git clone https://github.com/your-repo/image-captioning.git
+git clone git@github.com:Devnetly/image-captioning.git
 cd image-captioning
 conda create -n automatic-image-captioning
 conda activate automatic-image-captioning
