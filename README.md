@@ -9,7 +9,7 @@ This project is part of a university course on Natural Language Processing (NLP)
 
 ## Members
 
-- Abdelnour FELLAH: [ab.fellah@esi-sba.dz](mailto:ab.fellah@esi-sba.dz)
+- Abdelnour Fellah: [ab.fellah@esi-sba.dz](mailto:ab.fellah@esi-sba.dz)
 - Abderrahmane Benounene: [a.benounene@esi-sba.dz](mailto:a.benounene@esi-sba.dz)
 - Adel Abdelkader Mokadem: [aa.mokadem@esi-sba.dz](mailto:aa.mokadem@esi-sba.dz)
 - Meriem Mekki: [me.mekki@esi-sba.dz](mailto:me.mekki@esi-sba.dz)
