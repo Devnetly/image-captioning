@@ -77,7 +77,7 @@ To generate caption for a set of images in folder,follow these steps :
 
 ```sh
 cd src/inference
-inference.py [-h] [--dataset {flickr30k}] [--model {transformer}] --checkpoint CHECKPOINT [--source SOURCE] --destination DESTINATION
+python inference.py [-h] [--dataset {flickr30k}] [--model {transformer}] --checkpoint CHECKPOINT [--source SOURCE] --destination DESTINATION
 ```
 
 ## Run the associated app
